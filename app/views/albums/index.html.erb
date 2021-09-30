@@ -1,0 +1,10 @@
+<h2>アルバム一覧</h2>
+<table>
+  <% @albums.each do |album| %>
+    <tr>
+      <td><%= album.album_name %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "新しくアルバムをつくる", new_album_path %>

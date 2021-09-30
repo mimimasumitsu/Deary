@@ -1,0 +1,12 @@
+<h2>アルバム作成</h2>
+<%= form_with model: @album, url: albums_path, local: true do |f| %>
+  <div>
+    <%= f.label :album_name, 'お子様のお名前' %>
+    <%= f.text_field :album_name, autofocus: true %>
+  </div>
+  <div>
+    <%= f.label :birthday, '生年月日' %>
+    <%= raw sprintf(f.date_select(:birthday, prompt: "--", start_year: Time.now.year, end_year: Time.now.year-20, use_month_numbers: true, date_separator: '%s'), '年', '月') + '日' %>
+  </div>
+  <%= f.submit 'アルバムをつくる' %>
+<% end %>
