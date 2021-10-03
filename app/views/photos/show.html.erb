@@ -1,17 +1,40 @@
 <h2>写真詳細画面</h2> <!--タイトル変える-->
 <div>
-  <%= link_to "写真一覧に戻る", photos_path %>
+  <div>
+    <%= link_to "写真一覧に戻る", photos_path %>
+  </div>
+  <%= attachment_image_tag @photo, :image, :fill, 400, 400, format: 'jpeg' %>
+  <div>
+    <%= @photo.created_at.strftime('%Y/%m/%d') %>
+    <%= link_to "削除", photo_path(@photo), method: :delete %>
+  </div>
+  <table>
+    <tr>
+      <td><%= @photo.album.user.name %></td>
+      <td><%= @photo.comment %></td>
+    </tr>
+  </table>
 </div>
-<%= attachment_image_tag @photo, :image, :fill, 400, 400, format: 'jpeg' %>
-<div>
-  <%= @photo.created_at.strftime('%Y/%m/%d') %>
-  <%= link_to "削除", photo_path(@photo), method: :delete %>
-</div>
-<table>
-  <tr>
-    <td><%= @photo.album.user.name %></td>
-    <td><%= @photo.comment %></td>
-  </tr>
-</table>
 
-<!--コメントできるようにする-->
+<div>
+  <table>
+    <% @photo.comments.each do |comment| %>
+      <tr>
+        <td><%= comment.user.name %></td>
+        <td><%= comment.comment %></td>
+        <td>
+          <% if comment.user == current_user %>
+            <%= link_to "削除",photo_comment_path(comment.photo, comment), method: :delete %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<div>
+  <%= form_with model: [@photo, @comment], local: true do |f| %>
+    <%= f.text_area :comment, placeholder: "コメントをここに書いてください" %>
+    <%= f.submit "送信する" %>
+  <% end %>
+</div>
