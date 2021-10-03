@@ -1,24 +1,47 @@
-# README
+# Deary
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+### サイトテーマ
+簡単に写真を記録・共有でき、いつでもどこでも見返せるフォトアルバムサイト
 
-* Ruby version
+### テーマを選んだ理由
+プリントした写真をアルバムに貼り、それを一緒に見返しながら思い出を語り合う。
+写真アルバムは従来の家族のコミュニケーションツールの一つです。
 
-* System dependencies
+スマートフォンの普及により、近頃は写真をプリントしてアルバムにする機会が減りました。
+スマートフォン自体に記録としては残っていても、
+その写真を家族で共有し、共通の話題として楽しむ機会は少なくなっていると思います。
 
-* Configuration
+また、コロナの影響で遠方に住んでいる家族に頻繁に会えなかったり、
+子どもの成長を直に見られない方も多いのではないでしょうか。
 
-* Database creation
+このような状況の中でも
+“遠くに住む人と気軽に写真を共有し、一緒に楽しむことができれば”
+そう考えたのが、このアプリケーションを作ろうと思ったきっかけです。
 
-* Database initialization
+Dearyは、従来のアルバム文化を復活させるためのアプリケーションです。
+子どもの写真を共有したり、それを見た人が感想を伝えたり。
+将来大きくなった子どもと思い出を振り返ったりすることもできます。
 
-* How to run the test suite
+このアプリケーションが、家族のコミュニケーションに繋がればと思い作りました。
 
-* Services (job queues, cache servers, search engines, etc.)
+### ターゲットユーザ
+小さい子どもがいる家族
 
-* Deployment instructions
+### 主な利用シーン
+子どものアルバムを作成する時
 
-* ...
+## 設計書
+[ER図](https://app.diagrams.net/#G1Vbfj27N6pHjcY_llgbXCM1r9fAop-W4m)
+[テーブル定義書](https://docs.google.com/spreadsheets/d/15ST3lSAHh1rriXFNE9XraWAGqW2JyMx3-9e6ejaiEec/edit#gid=1243549839)
+
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1ct5gXqEZOPWZOA2UsjryvPhzHih_DfnL9dDohQQkClI/edit#gid=0
+
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
