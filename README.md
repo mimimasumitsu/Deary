@@ -33,7 +33,7 @@ Dearyは、従来のアルバム文化を復活させるためのアプリケー
 子どものアルバムを作成する時
 
 ## 設計書
-[ER図](https://app.diagrams.net/#G1Vbfj27N6pHjcY_llgbXCM1r9fAop-W4m)
+[ER図](https://app.diagrams.net/#G1Vbfj27N6pHjcY_llgbXCM1r9fAop-W4m)<br>
 [テーブル定義書](https://docs.google.com/spreadsheets/d/15ST3lSAHh1rriXFNE9XraWAGqW2JyMx3-9e6ejaiEec/edit#gid=1243549839)
 
 ## チャレンジ要素一覧
