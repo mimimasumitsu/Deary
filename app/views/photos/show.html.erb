@@ -1,0 +1,14 @@
+<h2>写真詳細画面</h2> <!--タイトル変える-->
+<%= attachment_image_tag @photo, :image, :fill, 400, 400, format: 'jpeg' %>
+<div>
+  <%= @photo.created_at.strftime('%Y/%m/%d') %>
+  <%= link_to '削除', photo_path(@photo), method: :delete %>
+</div>
+<table>
+  <tr>
+    <td><%= @photo.album.user.name %></td>
+    <td><%= @photo.comment %></td>
+  </tr>
+</table>
+
+<!--コメントできるようにする-->
