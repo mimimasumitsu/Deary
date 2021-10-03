@@ -1,0 +1,4 @@
+<h2>写真一覧画面</h2> <!--タイトル変える-->
+<% @photos.each do |photo| %>
+  <%= attachment_image_tag photo, :image, :fill, 150, 150, format: 'jpeg' %>
+<% end %>
