@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_03_195439) do
+ActiveRecord::Schema.define(version: 2021_10_03_204639) do
+
+  create_table "album_users", force: :cascade do |t|
+    t.integer "album_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "albums", force: :cascade do |t|
     t.integer "user_id", null: false

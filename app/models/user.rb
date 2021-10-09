@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :albums, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :album_users, dependent: :destroy
 end

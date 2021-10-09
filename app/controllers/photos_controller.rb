@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
   def index
     @photos = Photo.all
+    @album = Album.find(params[:album_id])
   end
 
   def new
@@ -11,7 +12,7 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     @photo.album_id = current_user.id
     if @photo.save
-      redirect_to photos_path
+      redirect_to album_photos_path
     else
       render :new
     end
@@ -20,12 +21,13 @@ class PhotosController < ApplicationController
   def show
     @photo = Photo.find(params[:id])
     @comment = Comment.new
+    @album = Album.find(params[:album_id])
   end
 
   def destroy
     @photo = Photo.find(params[:id])
     @photo.destroy
-    redirect_to photos_path
+    redirect_to album_photos_path(params[:album_id])
   end
 
   private

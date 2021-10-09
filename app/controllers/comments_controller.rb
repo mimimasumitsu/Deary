@@ -5,12 +5,13 @@ class CommentsController < ApplicationController
     comment.user_id = current_user.id
     comment.photo_id = photo.id
     comment.save
-    redirect_to photo_path(photo)
+    album = Album.find(params[:album_id])
+    redirect_to album_photo_path(album, photo)
   end
 
   def destroy
     Comment.find_by(id: params[:id]).destroy
-    redirect_to photo_path(params[:photo_id])
+    redirect_to album_photo_path(params[:album_id], params[:photo_id])
   end
 
   private

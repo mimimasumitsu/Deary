@@ -1,12 +1,14 @@
 <h2>写真詳細画面</h2> <!--タイトル変える-->
 <div>
   <div>
-    <%= link_to "写真一覧に戻る", photos_path %>
+    <%= link_to "写真一覧に戻る", album_photos_path %>
   </div>
   <%= attachment_image_tag @photo, :image, :fill, 400, 400, format: 'jpeg' %>
   <div>
     <%= @photo.created_at.strftime('%Y/%m/%d') %>
-    <%= link_to "削除", photo_path(@photo), method: :delete %>
+    <% if @photo.album.user == current_user %>
+      <%= link_to "削除", album_photo_path(@album, @photo), method: :delete %>
+    <% end %>
   </div>
   <table>
     <tr>
@@ -24,7 +26,7 @@
         <td><%= comment.comment %></td>
         <td>
           <% if comment.user == current_user %>
-            <%= link_to "削除",photo_comment_path(comment.photo, comment), method: :delete %>
+            <%= link_to "削除",album_photo_comment_path(@album, comment.photo, comment), method: :delete %>
           <% end %>
         </td>
       </tr>
@@ -33,7 +35,7 @@
 </div>
 
 <div>
-  <%= form_with model: [@photo, @comment], local: true do |f| %>
+  <%= form_with model: @comment, url: album_photo_comments_path(@album, @photo), local: true do |f| %>
     <%= f.text_area :comment, placeholder: "コメントをここに書いてください" %>
     <%= f.submit "送信する" %>
   <% end %>

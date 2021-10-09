@@ -1,0 +1,9 @@
+<h2>家族一覧</h2>
+<%= link_to "招待する", new_album_album_user_path %>
+<table>
+  <tr>
+    <td><%#= @admin.name %></td>
+    <% @album_users.each do |album_user| %>
+      <td><%= album_user.user.name %></td>
+    <% end %>
+</table>
