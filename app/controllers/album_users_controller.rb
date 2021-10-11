@@ -1,7 +1,8 @@
 class AlbumUsersController < ApplicationController
   def index
-    @album_users = AlbumUser.all
-    # @admin =
+    @album = Album.find(params[:album_id])
+    @users = User.where(@album.album_users)
+    @album_author = User.find(Album.find(params[:album_id]).user_id)
   end
 
   def new
@@ -24,6 +25,9 @@ class AlbumUsersController < ApplicationController
   end
 
   def destroy
+    @album_user = AlbumUser.find(params[:id])
+    @album_user.destroy
+    redirect_to album_album_users_path
   end
 
   private

@@ -3,7 +3,8 @@
   <% @albums.each do |album| %>
     <tr>
       <td><%= album.album_name %></td>
-      <td><%= link_to '見る', album_photos_path(album.id) %></td>
+      <td><%= link_to '写真をみる', album_photos_path(album.id) %></td>
+      <td><%= link_to "家族をみる", album_album_users_path(album.id) %></td>
     </tr>
   <% end %>
 </table>

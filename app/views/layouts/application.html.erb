@@ -13,27 +13,12 @@
     <header>
       <h1><%= link_to root_path do %>Deary<% end %></h1>
       <% if user_signed_in? %>
-        <% if request.path == albums_path || request.path == new_album_path %>
-          <li>
-            <%= link_to "アルバム一覧", albums_path %>
-          </li>
-          <li>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to "アルバム一覧", albums_path %>
-          </li>
-          <li>
-            <%= link_to "写真一覧", album_photos_path %>
-          </li>
-          <li>
-            <%= link_to "家族一覧", album_album_users_path %>
-          </li>
-          <li>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-          </li>
-        <% end %>
+        <li>
+          <%= link_to "アルバム一覧", albums_path %>
+        </li>
+        <li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </li>
       <% else %>
         <li>
           <%= link_to "ホーム", root_path %>

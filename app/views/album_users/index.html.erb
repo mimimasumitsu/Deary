@@ -2,8 +2,15 @@
 <%= link_to "招待する", new_album_album_user_path %>
 <table>
   <tr>
-    <td><%#= @admin.name %></td>
-    <% @album_users.each do |album_user| %>
-      <td><%= album_user.user.name %></td>
+    <td><%= @album_author.name %></td>
+  </tr>
+  <tr>
+    <% @users.each do |user| %>
+      <td><%= user.name %></td>
+      <td>
+        <% if @album_author == current_user %>
+          <%= link_to '削除', album_album_user_path(params[:album_id], user.id), method: :delete %>
+        <% end %>
+      </td>
     <% end %>
 </table>
