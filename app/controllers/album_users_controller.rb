@@ -1,8 +1,8 @@
 class AlbumUsersController < ApplicationController
   def index
     @album = Album.find(params[:album_id])
-    @users = User.where(@album.album_users)
-    @album_author = User.find(Album.find(params[:album_id]).user_id)
+    @users = User.where(id: @album.album_users.pluck(:user_id))
+    @album_author = User.find(@album.user_id)
   end
 
   def new

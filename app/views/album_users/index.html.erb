@@ -1,10 +1,14 @@
 <h2>家族一覧</h2>
-<%= link_to "招待する", new_album_album_user_path %>
+<% if @album_author == current_user %>
+  <%= link_to "招待する", new_album_album_user_path %>
+<% end %>
 <table>
   <tr>
+    <th>管理者</th>
     <td><%= @album_author.name %></td>
   </tr>
   <tr>
+    <th>メンバー</th>
     <% @users.each do |user| %>
       <td><%= user.name %></td>
       <td>

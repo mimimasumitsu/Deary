@@ -1,6 +1,8 @@
 class AlbumsController < ApplicationController
   def index
-    @albums = Album.all
+    invited_album_ids = current_user.album_users.pluck(:album_id)
+    showable_album_ids = current_user.albums.ids + invited_album_ids
+    @albums = Album.where(id: showable_album_ids)
   end
 
   def new

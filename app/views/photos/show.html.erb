@@ -1,16 +1,17 @@
-<h2>写真詳細画面</h2> <!--タイトル変える-->
+<h2><%= @photo.created_at.strftime('%Y/%m/%d') %></h2>
 <div>
-  <div>
+  <div class="back-page">
     <%= link_to "写真一覧に戻る", album_photos_path %>
   </div>
-  <%= attachment_image_tag @photo, :image, :fill, 400, 400, format: 'jpeg' %>
-  <div>
-    <%= @photo.created_at.strftime('%Y/%m/%d') %>
+  <div class="delete-photo">
     <% if @photo.album.user == current_user %>
       <%= link_to "削除", album_photo_path(@album, @photo), method: :delete %>
     <% end %>
   </div>
-  <table>
+  <div class="detail">
+    <%= attachment_image_tag @photo, :image, format: 'jpeg' %>
+  </div>
+  <table class="comment">
     <tr>
       <td><%= @photo.album.user.name %></td>
       <td><%= @photo.comment %></td>
@@ -19,7 +20,7 @@
 </div>
 
 <div>
-  <table>
+  <table class="comment">
     <% @photo.comments.each do |comment| %>
       <tr>
         <td><%= comment.user.name %></td>

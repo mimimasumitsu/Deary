@@ -1,0 +1,91 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  width: auto;
+  height: 80px;
+  text-align: center;
+  background-color: #82cddd;
+  .title {
+    text-decoration: none;
+    color: #fffff9;
+  }
+  li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 15px;
+    a {
+      text-decoration: none;
+      color: #fffff9;
+    }
+  }
+}
+
+main {
+  width: 100%;
+  margin: 30px auto;
+  text-align: center;
+  background-color: #fffff9;
+  a {
+    text-decoration: none;
+    color: #82cddd;
+  }
+  .top-image {
+    width: 50%;
+    height: auto;
+  }
+  .about {
+    margin: 20px;
+  }
+  .album {
+    margin: auto;
+    text-align: left;
+  }
+  .add-photo {
+    margin: auto 30%;
+    text-align: right;
+  }
+  .photos {
+    display: flex;
+    justify-content: center;
+    flex-flow: row-reverse wrap;
+    div {
+      margin: 8px;
+    }
+  }
+  .back-page {
+    margin: auto 20%;
+    text-align: left;
+  }
+  .delete-photo {
+    margin: auto 25%;
+    text-align: right;
+  }
+  .detail img {
+    width: 35%;
+    height: auto;
+  }
+  .comment {
+    margin: auto 30%;
+    text-align: left;
+  }
+}
