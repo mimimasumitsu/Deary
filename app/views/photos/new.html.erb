@@ -1,4 +1,7 @@
 <h2>写真追加</h2>
+<div class="back-page">
+  <%= link_to "写真一覧に戻る", album_photos_path %>
+</div>
 <%= form_with model: @photo, url: album_photos_path, local: true do |f| %>
   <div>
     <%= f.label :image, '写真' %>

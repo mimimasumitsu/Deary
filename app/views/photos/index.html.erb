@@ -1,7 +1,10 @@
-<h2>写真一覧画面</h2> <!--タイトル変える-->
+<h2><%= @album.album_name %></h2>
+<div><%= @age %>歳<%= @month.floor %>ヶ月</div>
 <div class="add-photo">
   <% if @album_author == current_user %>
-    <%= link_to '写真追加', new_album_photo_path %>
+    <%= link_to new_album_photo_path do %>
+      <i class="fas fa-plus"> 写真追加</i>
+    <% end %>
   <% end %>
 </div>
 <div class="photos">
