@@ -1,8 +1,8 @@
 <h2>アルバム一覧</h2>
 <table class="album">
   <% @albums.each do |album| %>
-    <tr>
-      <td><%= album.album_name %></td>
+    <tr align="left">
+      <th><%= album.album_name %></th>
       <td>
         <%= link_to album_photos_path(album.id) do %>
           <i class="fas fa-images"> 写真をみる</i>

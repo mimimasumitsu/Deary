@@ -69,3 +69,5 @@ gem "refile-mini_magick"
 gem 'pry-byebug'
 
 gem 'ransack'
+
+gem 'rails-i18n'

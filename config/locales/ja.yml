@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      album:
+        album_name: お子様のお名前
+        birthday: 生年月日
+      photo:
+        image: 写真
+        comment: コメント
+      user:
+        name: 名前

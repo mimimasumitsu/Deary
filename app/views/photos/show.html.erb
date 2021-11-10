@@ -1,33 +1,30 @@
-<h2><%= @photo.created_at.strftime('%Y/%m/%d') %></h2>
-<div>
-  <div class="back-page">
-    <%= link_to "戻る", album_photos_path %>
-  </div>
-  <div class="delete-photo">
-    <% if @photo.album.user == current_user %>
-      <%= link_to "削除", album_photo_path(@album, @photo), method: :delete %>
-    <% end %>
-  </div>
-  <div class="detail">
-    <%= attachment_image_tag @photo, :image, format: 'jpeg' %>
-  </div>
+<div class="back-page">
+  <%= link_to "戻る", album_photos_path %>
+</div>
+<div class="delete-photo">
+  <% if @photo.album.user == current_user %>
+    <%= link_to "削除", album_photo_path(@album, @photo), method: :delete, data: {confirm: "本当に削除しますか？"} %>
+  <% end %>
+</div>
+<h2 class="date"><%= @photo.created_at.strftime('%Y/%m/%d') %></h2>
+<div class="post">
+  <%= attachment_image_tag @photo, :image, format: 'jpeg' %>
+</div>
+<div class="comments">
   <table class="comment">
-    <tr>
-      <td><%= @photo.album.user.name %></td>
+    <tr align="left">
+      <th><%= @photo.album.user.name %></th>
       <td><%= @photo.comment %></td>
     </tr>
   </table>
-</div>
-
-<div>
   <table class="comment">
     <% @photo.comments.each do |comment| %>
-      <tr>
-        <td><%= comment.user.name %></td>
+      <tr align="left">
+        <th><%= comment.user.name %></th>
         <td><%= comment.comment %></td>
         <td>
           <% if comment.user == current_user %>
-            <%= link_to "削除",album_photo_comment_path(@album, comment.photo, comment), method: :delete %>
+            <%= link_to "削除",album_photo_comment_path(@album, comment.photo, comment), method: :delete, data: {confirm: "削除しますか？"} %>
           <% end %>
         </td>
       </tr>
@@ -37,7 +34,11 @@
 
 <div>
   <%= form_with model: @comment, url: album_photo_comments_path(@album, @photo), local: true do |f| %>
-    <%= f.text_area :comment, placeholder: "コメントをここに書いてください" %>
-    <%= f.submit "送信する" %>
+    <div class="field">
+      <%= f.text_area :comment, placeholder: "コメントをここに書いてください" %>
+    </div>
+    <div class="button">
+      <%= f.submit "送信する" %>
+    </div>
   <% end %>
 </div>

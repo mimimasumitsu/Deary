@@ -1,20 +1,29 @@
 <h2>家族一覧</h2>
-<% if @album_author == current_user %>
-  <%= link_to "招待する", new_album_album_user_path %>
-<% end %>
-<table>
-  <tr>
+<table class="member">
+  <tr align="left">
     <th>管理者</th>
+  </tr>
+  <tr align="left">
     <td><%= @album_author.name %></td>
   </tr>
-  <tr>
+  <tr align="left">
     <th>メンバー</th>
-    <% @users.each do |user| %>
+  </tr>
+  <% @users.each do |user| %>
+    <tr align="left">
       <td><%= user.name %></td>
       <td>
         <% if @album_author == current_user %>
-          <%= link_to '削除', album_album_user_path(params[:album_id], user.id), method: :delete %>
+          <%= link_to '退会', album_album_user_path(params[:album_id], user.id), method: :delete, data: {confirm: "本当によろしいですか？"} %>
         <% end %>
       </td>
-    <% end %>
+    </tr>
+  <% end %>
 </table>
+<% if @album_author == current_user %>
+  <div class="add-member">
+    <%= link_to new_album_album_user_path do %>
+      <i class="fas fa-user-plus"> 招待する</i>
+    <% end %>
+  </div>
+<% end %>

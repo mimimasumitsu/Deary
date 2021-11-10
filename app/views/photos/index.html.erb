@@ -1,5 +1,7 @@
-<h2><%= @album.album_name %></h2>
-<div><%= @age %>歳<%= @month.floor %>ヶ月</div>
+<h2 class="name"><%= @album.album_name %></h2>
+<div class="age">
+  <i class="fas fa-birthday-cake"> <%= @age %>歳<%= @month.floor %>ヶ月</i>
+</div>
 <div class="add-photo">
   <% if @album_author == current_user %>
     <%= link_to new_album_photo_path do %>

@@ -14,6 +14,9 @@
  *= require_self
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -22,14 +25,17 @@
 
 header {
   width: 100%;
-  height: 80px;
-  position: fixed;
+  height: 85px;
+  position: sticky;
   top: 0;
   text-align: center;
   background-color: #82cddd;
+  font-family: 'Noto Sans JP', sans-serif;
   .title {
     text-decoration: none;
     color: #fffff9;
+    font-size: 30px;
+    font-family: 'Nunito', sans-serif;
   }
   li {
     list-style: none;
@@ -39,49 +45,137 @@ header {
       text-decoration: none;
       color: #fffff9;
       font-weight: 600;
-    }
-    a:hover {
-      text-decoration: underline;
-      color: #006581;
+      &:hover {
+        text-decoration: underline;
+        color: #006581;
+      }
     }
   }
 }
 
 main {
   width: 100%;
-  margin: 110px auto;
+  margin: 30px auto;
   text-align: center;
   color: #4d4d4b;
   background-color: #fffff9;
-  .welcome {
-    margin: 30px auto 20px;
-  }
+  font-family: 'Noto Sans JP', sans-serif;
   a {
     text-decoration: none;
-    color: #82cddd;
-    font-weight: 600;
+    color: #59c5de;
+    font-weight: 700;
+    &:hover {
+      text-decoration: underline;
+      color: #006581;
+    }
   }
-  a:hover {
-    text-decoration: underline;
-    color: #006581;
-  }
-  .top-image {
-    width: 50%;
-    height: auto;
+  .top-container {
+    background-image: image-url('img-1.jpg');
+    margin: -30px auto;
+    width: 900px;
+    height: 600px;
+    background-size:cover;
+    .top-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: 60px;
+      background-color: #e6e6e1;
+      border-radius: 50%;
+      opacity: 0.8;
+      width: 110px;
+      height: 110px;
+      margin: 80px;
+      padding: 13px 10px;
+      position: relative;
+      top: 60px;
+    }
+    .box {
+      position: relative;
+      top: 270px;
+      .top-link {
+        display: inline-block;
+        margin: 15px;
+        a {
+          border-radius: 7px;
+          padding: 8px 45px;
+          font-size: 18px;
+          color: #43c1de;
+          background-color: #fffff9;
+          opacity: 0.7;
+          &:hover {
+            color: #006581;
+            text-decoration: none;
+          }
+        }
+      }
+    }
   }
   .about {
-    margin: 40px auto;
+    width: 660px;
+    height: 650px;
+    margin: auto;
+    padding: 20px;
+    background-color: #e6e6e1;
+    border-radius: 50%;
+    font-family: 'Nunito', sans-serif;
     .paragraph {
       margin: 20px;
     }
   }
+  .supplement {
+    margin: 3px 0 20px;
+    font-weight: 500;
+  }
+  .field {
+    margin: 12px 0;
+    font-weight: 600;
+    & input {
+    	margin: 3px 0;
+    	padding: 5px 40px;
+    	border: 1px solid #4d4d4b;
+    	border-radius: 4px;
+    	text-align: center;
+    }
+  }
+  .field-img {
+    margin: 12px 0;
+    font-weight: 600;
+    & input {
+    	margin: 3px 0;
+    	padding: 5px 40px;
+    }
+  }
+  .button input {
+    margin: 8px 0;
+    border-radius: 7px;
+    border: 1px solid #4d4d4b;
+    border-bottom: solid 3px #666663;
+    border-right: solid 2px #666663;
+    padding: 3px 5px;
+    font-size: 15px;
+    background-color: #e6e6e1;
+    &:hover {
+      background-color: #c8dade;
+    }
+  }
+  .link {
+    margin: 5px 0;
+  }
   .album {
-    margin: auto;
-    text-align: left;
+    margin: 20px auto;
+    th, td {
+      border-bottom: dotted 4px #e6e6e1;
+      padding: 15px 10px;
+    }
+  }
+  .name {
+    font-size: 25px;
+  }
+  .age {
+    padding: 5px 0 0;
+    font-size: 15px;
   }
   .add-photo {
-    margin: auto 30%;
-    text-align: right;
+    margin: 20px;
   }
   .photos {
     margin: auto 9%;
@@ -92,20 +186,64 @@ main {
       margin: 8px;
     }
   }
+  .date {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    font-size: 20px;
+  }
   .back-page {
-    margin: auto 25%;
-    text-align: left;
+    display: inline-block;
+    position: absolute;
+    left: 35%;
   }
   .delete-photo {
-    margin: auto 25%;
-    text-align: right;
+    display: inline-block;
+    position: absolute;
+    right: 35%;
   }
-  .detail img {
-    width: 35%;
-    height: auto;
+  .post img {
+    height: 550px;
   }
-  .comment {
+  .comments {
+    width: 70%;
     margin: auto 30%;
-    text-align: left;
+    .comment {
+      th, td {
+        padding: 5px;
+      }
+    }
+  }
+  .member {
+    margin: 20px auto;
+    border-spacing: 15px;
+    th {
+      border-bottom: dotted 4px #e6e6e1;
+      display: inline-block;
+    }
+  }
+  .add-member {
+    margin: 20px;
+  }
+  #error_explanation {
+    display: block;
+    width: 30%;
+    border: 2px solid #ea5550;
+    border-radius: 3px;
+    padding: 7px;
+    margin: 20px auto;
+    background-color: #ebd4d3;
+    h2 {
+      text-align: center;
+      font-weight: bold;
+      padding: 5px 5px 5px 15px;
+      font-size: 12px;
+      margin: -7px -7px 0;
+      color: #ea5550;
+    }
+    ul li {
+      font-size: 12px;
+      list-style: none;
+    }
   }
 }

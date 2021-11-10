@@ -1,2 +1,11 @@
-<h1 class="welcome">Dearyへようこそ</h1>
-<%= image_tag 'img-1.jpg', class: "top-image", alt: "image" %>
+<div class="top-container">
+  <div class="top-title">Deary</div>
+  <div class="box">
+    <div class="top-link">
+      <%= link_to "» はじめてご利用の方", new_user_registration_path %>
+    </div>
+    <div class="top-link">
+      <%= link_to "» すでにご利用中の方", new_user_session_path %>
+    </div>
+  </div>
+</div>

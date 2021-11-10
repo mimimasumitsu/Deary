@@ -1,12 +1,25 @@
 <h2>アルバム作成</h2>
+<% if @album.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @album.errors.count %>件のエラーが発生したため アルバム は保存されませんでした。</h2>
+    <ul>
+      <% @album.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_with model: @album, url: albums_path, local: true do |f| %>
-  <div>
-    <%= f.label :album_name, 'お子様のお名前' %>
+  <div class="field">
+    <%= f.label :album_name, 'お子様のお名前' %><br>
     <%= f.text_field :album_name, autofocus: true %>
   </div>
-  <div>
-    <%= f.label :birthday, '生年月日' %>
+  <div class="field">
+    <%= f.label :birthday, '生年月日' %><br>
     <%= raw sprintf(f.date_select(:birthday, prompt: "--", start_year: Time.now.year, end_year: Time.now.year-20, use_month_numbers: true, date_separator: '%s'), '年', '月') + '日' %>
   </div>
-  <%= f.submit 'アルバムをつくる' %>
+  <div class="button">
+    <%= f.submit 'アルバムをつくる' %>
+  </div>
 <% end %>

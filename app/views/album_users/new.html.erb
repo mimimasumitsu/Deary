@@ -1,9 +1,11 @@
 <h2>招待</h2>
 <%= form_with model: @album_user, url: album_album_users_path, local: true do |f| %>
-  <div>
-    <%= f.label :email, 'メールアドレスでユーザを検索' %>
+  <div class="field">
+    <%= f.label :email, 'メールアドレスでユーザを検索' %><br>
     <%= f.text_field :email %>
     <%= f.hidden_field :album_id, :value => @album.id %>
   </div>
-  <%= f.submit '招待する' %>
+  <div class="button">
+    <%= f.submit '招待する' %>
+  </div>
 <% end %>

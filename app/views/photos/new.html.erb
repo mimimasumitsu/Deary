@@ -1,15 +1,25 @@
 <h2>写真追加</h2>
-<div class="back-page">
-  <%= link_to "写真一覧に戻る", album_photos_path %>
-</div>
+<% if @photo.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @photo.errors.count %>件のエラーが発生したため 写真 は保存されませんでした。</h2>
+    <ul>
+      <% @photo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_with model: @photo, url: album_photos_path, local: true do |f| %>
-  <div>
-    <%= f.label :image, '写真' %>
+  <div class="field-img">
+    <%= f.label :image, '写真' %><br>
     <%= f.attachment_field :image %>
   </div>
-  <div>
-    <%= f.label :comment, 'コメント' %>
+  <div class="field">
+    <%= f.label :comment, 'コメント' %><br>
     <%= f.text_area :comment %>
   </div>
-  <%= f.submit 'アルバムに追加する' %>
+  <div class="button">
+    <%= f.submit 'アルバムに追加する' %>
+  </div>
 <% end %>
