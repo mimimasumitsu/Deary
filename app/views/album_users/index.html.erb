@@ -14,7 +14,7 @@
       <td><%= user.name %></td>
       <td>
         <% if @album_author == current_user %>
-          <%= link_to '退会', album_album_user_path(params[:album_id], user.id), method: :delete, data: {confirm: "本当によろしいですか？"} %>
+          <%= link_to '退会', album_album_user_path(@album, user.id), method: :delete, data: {confirm: "本当によろしいですか？"} %>
         <% end %>
       </td>
     </tr>
