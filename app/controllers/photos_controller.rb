@@ -3,19 +3,7 @@ class PhotosController < ApplicationController
     @album = Album.find(params[:album_id])
     @photos = @album.photos.order(id: "DESC")
     @album_author = User.find(@album.user_id)
-    birthday = @album.birthday
-    now_year_birthday = Date.new(Date.today.year, birthday.month, birthday.day)
-    today = Date.today
-    @age = today.year - birthday.year
-    if today.month < birthday.month or (today.month == birthday.month and today.day < birthday.day)
-      @age -= 1 # まだ誕生日を迎えていない
-    end
-    if today > now_year_birthday
-      @month = (today - now_year_birthday) / 30
-    else
-      now_year_birthday = Date.new(Date.today.year + 1, birthday.month, birthday.day)
-      @month = (today - now_year_birthday) / 30
-    end
+    @age_char = @album.age_char
   end
 
   def new

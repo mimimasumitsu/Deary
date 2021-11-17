@@ -1,6 +1,6 @@
 <h2 class="name"><%= @album.album_name %></h2>
 <div class="age">
-  <i class="fas fa-birthday-cake"> <%= @age %>歳<%= @month.floor %>ヶ月</i>
+  <i class="fas fa-birthday-cake"> <%= @age_char %></i>
 </div>
 <div class="add-photo">
   <% if @album_author == current_user %>
